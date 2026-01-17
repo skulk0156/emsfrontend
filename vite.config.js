@@ -8,7 +8,7 @@ export default defineConfig({
     proxy: {
       // This tells Vite: "Any request starting with /api, forward it to my Render backend"
       '/api': {
-        target: 'http://localhost:5000',
+        target: 'https://emsbackend-2w9c.onrender.com',
         changeOrigin: true,
         secure: true, // set to true if using https
       }

@@ -314,7 +314,7 @@ const Navbar = () => {
                   >
                     {profileImage ? (
                       <img
-                        src={`http://localhost:5000${profileImage}`}
+                        src={`https://emsbackend-2w9c.onrender.com${profileImage}`}
                         alt="Profile"
                         className="w-8 h-8 rounded-full object-cover border-2 border-slate-200"
                       />
@@ -412,7 +412,7 @@ const Navbar = () => {
                 <div className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 border-2 border-blue-200">
                   {profileImage ? (
                     <img
-                      src={`http://localhost:5000${profileImage}`}
+                      src={`${profileImage}`}
                       alt="Profile"
                       className="w-8 h-8 rounded-full object-cover"
                     />

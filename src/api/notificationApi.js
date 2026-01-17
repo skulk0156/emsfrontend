@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "http://localhost:5000/api/notifications"; // ✅ apne backend port ke hisab se
+const BASE_URL = "https://emsbackend-2w9c.onrender.com/api/notifications"; // ✅ apne backend port ke hisab se
 
 export const getMyNotifications = (token) => {
   return axios.get(`${BASE_URL}/my?page=1&limit=10`, {
