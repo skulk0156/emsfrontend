@@ -32,7 +32,7 @@ const EditProject = () => {
   const fetchProject = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get(`https://emsbackend-2w9c.onrender.com/api/projects/${id}`, {
+      const response = await axios.get(`http://localhost:5000/api/projects/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       console.log('Project data:', response.data);
@@ -60,12 +60,12 @@ const EditProject = () => {
       const token = localStorage.getItem('token');
       let response;
       try {
-        response = await axios.get('https://emsbackend-2w9c.onrender.com/api/users/managers', {
+        response = await axios.get('http://localhost:5000/api/users/managers', {
           headers: { Authorization: `Bearer ${token}` }
         });
       } catch (err) {
         // Fallback to all users if managers endpoint doesn't exist
-        response = await axios.get('https://emsbackend-2w9c.onrender.com/api/users', {
+        response = await axios.get('http://localhost:5000/api/users', {
           headers: { Authorization: `Bearer ${token}` }
         });
         // Filter for managers and admins
@@ -83,7 +83,7 @@ const EditProject = () => {
   const fetchTeams = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get('https://emsbackend-2w9c.onrender.com/api/teams', {
+      const response = await axios.get('http://localhost:5000/api/teams', {
         headers: { Authorization: `Bearer ${token}` }
       });
       console.log('Teams data:', response.data);
@@ -104,7 +104,7 @@ const EditProject = () => {
       delete payload.deadline; 
       console.log('Submitting form data:', payload);
       
-      await axios.put(`https://emsbackend-2w9c.onrender.com/api/projects/${id}`, payload, {
+      await axios.put(`http://localhost:5000/api/projects/${id}`, payload, {
         headers: { Authorization: `Bearer ${token}` }
       });
       

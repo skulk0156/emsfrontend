@@ -11,7 +11,7 @@ import {
 
 // --- AXIOS INSTANCE ---
 const api = axios.create({
-  baseURL: "https://emsbackend-2w9c.onrender.com/api",
+  baseURL: "http://localhost:5000/api",
 });
 
 api.interceptors.request.use((config) => {
@@ -251,7 +251,7 @@ const EditEmployee = () => {
                       />
                     ) : profileImage ? (
                       <img 
-                        src={`https://emsbackend-2w9c.onrender.com${profileImage}`}
+                        src={`http://localhost:5000${profileImage}`}
                         alt={formData.name}
                         className="w-full h-full object-cover"
                       />

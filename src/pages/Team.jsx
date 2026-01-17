@@ -45,7 +45,7 @@ const Team = () => {
   useEffect(() => {
     const fetchTeams = async () => {
       try {
-        const res = await axios.get("https://emsbackend-2w9c.onrender.com/api/teams", {
+        const res = await axios.get("http://localhost:5000/api/teams", {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         });
         // Add safety check for response data
@@ -117,7 +117,7 @@ const Team = () => {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`https://emsbackend-2w9c.onrender.com/api/teams/${deleteTeamId}`, {
+      await axios.delete(`http://localhost:5000/api/teams/${deleteTeamId}`, {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
       setTeams((prev) => prev.filter((team) => team._id !== deleteTeamId));

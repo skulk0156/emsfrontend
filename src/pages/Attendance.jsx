@@ -22,9 +22,9 @@ const statusColors = {
   "Failed Punchout": { bg: "bg-red-50", text: "text-red-600", border: "border-red-200", dot: "bg-red-600" }, 
 };
 
-const API_URL = "https://emsbackend-2w9c.onrender.com/api/attendance";
-const USERS_API = "https://emsbackend-2w9c.onrender.com/api/users";
-const LEAVES_API = "https://emsbackend-2w9c.onrender.com/api/leaves";
+const API_URL = "http://localhost:5000/api/attendance";
+const USERS_API = "http://localhost:5000/api/users";
+const LEAVES_API = "http://localhost:5000/api/leaves";
 
 const Attendance = () => {
   const navigate = useNavigate();

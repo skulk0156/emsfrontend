@@ -58,7 +58,7 @@
 //   const fetchLeaves = async () => {
 //     setLoading(true);
 //     try {
-//       const res = await axios.get("https://emsbackend-2w9c.onrender.com/api/leaves");
+//       const res = await axios.get("http://localhost:5000/api/leaves");
 //       const data = res.data || [];
 //       setLeaves(
 //         role === "employee" ? data.filter((l) => l.employee_id === employeeId) : data
@@ -97,7 +97,7 @@
 //   const handleAddLeave = async (e) => {
 //     e.preventDefault();
 //     try {
-//       await axios.post("https://emsbackend-2w9c.onrender.com/api/leaves", {
+//       await axios.post("http://localhost:5000/api/leaves", {
 //         leave_id: generateLeaveId(),
 //         employee_id: employeeId,
 //         employee_name: employeeName,
@@ -117,7 +117,7 @@
 //   const updateStatus = async (id, status) => {
 //     setUpdating(id);
 //     try {
-//       await axios.patch(`https://emsbackend-2w9c.onrender.com/api/leaves/${id}`, { status });
+//       await axios.patch(`http://localhost:5000/api/leaves/${id}`, { status });
 //       setShowDropdown(null);
 //       fetchLeaves();
 //       setToast({ show: true, message: `Leave request ${status.toLowerCase()}`, type: "success" });
@@ -548,7 +548,7 @@ const Leave = () => {
   const fetchLeaves = async () => {
     setLoading(true);
     try {
-      const res = await axios.get("https://emsbackend-2w9c.onrender.com/api/leaves");
+      const res = await axios.get("http://localhost:5000/api/leaves");
       const data = res.data || [];
       setLeaves(
         role === "employee" ? data.filter((l) => l.employee_id === employeeId) : data
@@ -587,7 +587,7 @@ const Leave = () => {
   const handleAddLeave = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("https://emsbackend-2w9c.onrender.com/api/leaves", {
+      await axios.post("http://localhost:5000/api/leaves", {
         leave_id: generateLeaveId(),
         employee_id: employeeId,
         employee_name: employeeName,
@@ -607,7 +607,7 @@ const Leave = () => {
   const updateStatus = async (id, status) => {
     setUpdating(id);
     try {
-      await axios.patch(`https://emsbackend-2w9c.onrender.com/api/leaves/${id}`, { status });
+      await axios.patch(`http://localhost:5000/api/leaves/${id}`, { status });
       setShowDropdown(null);
       fetchLeaves();
       setToast({ show: true, message: `Leave request ${status.toLowerCase()}`, type: "success" });

@@ -63,7 +63,7 @@ const ProfilePage = () => {
             <div className="w-32 h-32 rounded-full bg-blue-50 border-4 border-white shadow-xl flex items-center justify-center overflow-hidden relative group hover:scale-105 transition-transform duration-300">
               {user.profileImage ? (
                 <img
-                  src={`https://emsbackend-2w9c.onrender.com${user.profileImage}`}
+                  src={`http://localhost:5000${user.profileImage}`}
                   alt="Profile"
                   className="w-full h-full object-cover"
                 />

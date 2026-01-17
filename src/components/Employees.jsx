@@ -8,7 +8,7 @@ import Toast from "./Toast";
 
 // --- AXIOS INSTANCE ---
 const api = axios.create({
-  baseURL: "https://emsbackend-2w9c.onrender.com/api",
+  baseURL: "http://localhost:5000/api",
 });
 
 api.interceptors.request.use((config) => {
@@ -281,7 +281,7 @@ const Employees = () => {
                         <div className="flex items-center gap-3">
                             <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white font-bold shadow-md text-xs shrink-0 overflow-hidden">
                                 {emp.profileImage ? (
-                                    <img src={`https://emsbackend-2w9c.onrender.com${emp.profileImage}`} alt="" className="w-full h-full object-cover" />
+                                    <img src={`http://localhost:5000${emp.profileImage}`} alt="" className="w-full h-full object-cover" />
                                 ) : (
                                     emp.name.charAt(0).toUpperCase()
                                 )}
@@ -419,7 +419,7 @@ const Employees = () => {
                 <div className="flex flex-col items-center text-center">
                   <div className="w-28 h-28 rounded-full border-4 border-white shadow-md overflow-hidden bg-white mb-4">
                     {viewEmployee.profileImage ? (
-                        <img src={`https://emsbackend-2w9c.onrender.com${viewEmployee.profileImage}`} alt="" className="w-full h-full object-cover" />
+                        <img src={`http://localhost:5000${viewEmployee.profileImage}`} alt="" className="w-full h-full object-cover" />
                     ) : (
                         <div className="w-full h-full bg-slate-100 flex items-center justify-center text-slate-400 font-bold text-4xl">
                             {viewEmployee.name?.charAt(0)}
