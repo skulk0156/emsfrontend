@@ -168,7 +168,7 @@ const Leave = () => {
     <div className="min-h-screen flex flex-col bg-slate-50 text-slate-800 font-sans">
       
 
-      <div className="flex-1 p-4 md:p-8 max-w-7xl mx-auto w-full">
+      <div className="flex-1 p-4 md:p-8 max-w-10xl mx-auto w-full">
         {/* Header */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-6">
           <div>

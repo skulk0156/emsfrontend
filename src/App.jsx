@@ -20,7 +20,9 @@ import Attendance from "./pages/Attendance";
 import Leave from "./pages/Leave";
 import AddProject from "./pages/AddProject";
 import EditProject from "./pages/EditProject";
-
+import EmployeeKYC from "./pages/EmployeeKYC";
+import AdminKYCVerify from "./components/AdminKYCVerify";
+import MissingKycEmployees from "./components/MissingKycEmployees";
 // ✅ Updated PageLayout
 // pt-16 = 64px (Exactly Navbar height), so NO GAP.
 // Use pt-20 if you want a gap, but pt-16 looks cleaner.
@@ -63,6 +65,10 @@ function App() {
         
         <Route path="/attendance" element={<PageLayout><Attendance /></PageLayout>} />
         <Route path="/leave" element={<PageLayout><Leave /></PageLayout>} />
+
+        <Route path="/employees/:employeeId/kyc" element={<PageLayout><EmployeeKYC /></PageLayout>} />
+        <Route path="/admin/kyc" element={<PageLayout><AdminKYCVerify /></PageLayout>} />
+        <Route path="/admin/missing-kyc" element={<PageLayout><MissingKycEmployees /></PageLayout>} />
       </Routes>
     </Router>
   );

@@ -131,37 +131,61 @@ const AddEmployee = () => {
     setShowConfirmModal(true);
   };
 
-  // --- Final Submit Logic ---
-  const handleSubmit = async () => {
-    setShowConfirmModal(false);
-    setSubmitting(true);
-    
-    const payload = new FormData();
-    
-    Object.keys(formData).forEach(key => {
-      if (formData[key] !== null && formData[key] !== "") {
-        payload.append(key, formData[key]);
-      }
+const handleSubmit = async () => {
+  setShowConfirmModal(false);
+  setSubmitting(true);
+
+  const payload = new FormData();
+
+  Object.keys(formData).forEach((key) => {
+    if (formData[key] !== null && formData[key] !== "") {
+      payload.append(key, formData[key]);
+    }
+  });
+
+  if (file) payload.append("profileImage", file);
+
+  try {
+    const res = await api.post("/users/register", payload, {
+      headers: { "Content-Type": "multipart/form-data" },
     });
-    
-    if (file) {
-      payload.append('profileImage', file);
+
+    const createdEmployee = res.data?.user || res.data?.employee || res.data?.data || res.data;
+
+    if (!createdEmployee?._id) {
+      setToast({
+        show: true,
+        message: "Employee created but API didn't return employee id!",
+        type: "error",
+      });
+      return;
     }
 
-    try {
-      await api.post("/users/register", payload, {
-        headers: { 'Content-Type': 'multipart/form-data' }
+    setToast({
+      show: true,
+      message: "✅ Employee added! Now add KYC...",
+      type: "success",
+    });
+
+    setTimeout(() => {
+      navigate(`/employees/${createdEmployee._id}/kyc`, {
+        state: {
+          employee: createdEmployee,
+          fromAddEmployee: true,
+        },
       });
-      
-      setToast({ show: true, message: 'Employee added successfully!', type: 'success' });
-      setTimeout(() => navigate('/employees'), 1500);
-    } catch (err) {
-      console.error(err);
-      setToast({ message: err.response?.data?.message || 'Failed to add employee.', type: 'error' });
-    } finally {
-      setSubmitting(false);
-    }
-  };
+    }, 1000);
+  } catch (err) {
+    console.error(err);
+    setToast({
+      show: true,
+      message: err.response?.data?.message || "Failed to add employee.",
+      type: "error",
+    });
+  } finally {
+    setSubmitting(false);
+  }
+};
 
   if (submitting) {
     return (
@@ -409,7 +433,7 @@ const AddEmployee = () => {
                }}
                className="h-full px-8 py-2.5 rounded-xl flex items-center justify-center gap-2 font-semibold border border-transparent transition-all duration-300 ease-out text-sm"
              >
-               <span>Review & Add Employee</span>
+               <span>View Application &  Upload KYC</span>
              </button>
           </div>
         </form>
